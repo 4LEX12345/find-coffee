@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-coffee-dark overflow-hidden" id="hero">
+  <div class="bg-coffee-dark overflow-hidden lg:pt-0 pt-[70px]" id="hero">
     <div class="text-white relative  z-0">
       <div class=" mx-auto px-6 text-center  relative lg:pt-[100px] md:pt-[50px] pt-[50px] z-10 md:min-h-screen h-[600px] ">
         <img
