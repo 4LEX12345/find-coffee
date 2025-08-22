@@ -55,7 +55,7 @@
           class="md:hidden bg-transparent px-4 py-4 space-y-4"
         >
           <NuxtLink to="/" class="block hover:text-coffee-light" @click="isOpen = false">Home</NuxtLink>
-          <NuxtLink to="/menus" class="block hover:text-coffee-light" @click="isOpen = false">Menu</NuxtLink>
+          <NuxtLink to="/menu" class="block hover:text-coffee-light" @click="isOpen = false">Menu</NuxtLink>
           <NuxtLink to="/about" class="block hover:text-coffee-light" @click="isOpen = false">About</NuxtLink>
           <NuxtLink to="/contact" class="block hover:text-coffee-light" @click="isOpen = false">Contact</NuxtLink>
         </div>
