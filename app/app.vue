@@ -1,6 +1,6 @@
 <template>
-  <div class="font-body  text-gray-800">
-    <header class="lg:fixed sticky w-full top-0 text-white px-4 py-6 z-50 md:bg-transparent bg-black/40 ">
+  <div class="font-body   text-gray-800">
+    <header class="fixed  w-full top-0 text-white px-4 py-6 z-50 md:bg-transparent bg-black/40 ">
       <nav class="md:px-10 mx-auto flex justify-between items-center ">
         <!-- Logo -->
         <NuxtLink to="/" class=" text-sm space-x-10 bg-black/40 px-10 py-2 rounded-full backdrop-blur-xl"
