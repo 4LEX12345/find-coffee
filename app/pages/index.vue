@@ -90,7 +90,7 @@
 
         <div class="mt-12">
           <NuxtLink
-            to="/menus"
+            to="/menu"
             class="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-coffee-darker transition text-sm"
           >
             View Full Menu
