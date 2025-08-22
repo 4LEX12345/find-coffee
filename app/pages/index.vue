@@ -7,10 +7,10 @@
           class="absolute bottom-0 left-1/2 -translate-x-1/2  pointer-events-none md:hidden block"
            :style="{ opacity: 1 - scrollY / 300 }"
         />
-        <h1 class="md:text-[100px] leading-tight text-4xl z-20"  
+        <h1 class="md:text-[100px] font-extrabold  leading-tight drop-shadow-lg  z-20"  
         :style="{ transform: `translate(0%, ${scrollY * 1}px)`,opacity : 1 - scrollY / 600  }"
         >Brewed to Perfection</h1>
-        <p class="text-lg mb-8"
+        <p class="text-lg mb-8 "
         :style="{ transform: `translate(0%, ${scrollY * 1}px)`,opacity : 1 - scrollY / 600 }"
         >
           Freshly roasted beans. Handcrafted with love.
@@ -42,56 +42,56 @@
     </div>
 
     
-    <section class="bg-coffee-dark py-20 ">
+    <section class="bg-coffee-dark py-20 min-h-screen">
       <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-12">Sip Something Special</h2>
+        <h2 class="text-3xl md:text-[30px] text-white mb-12  font-extrabold  leading-tight">Sip Something Special</h2>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-left" data-aos="fade-in">
-          <div class=" rounded-xl shadow-lg p-6 hover:shadow-2xl transition" >
+          <div class=" rounded-xl  p-6 hover:shadow-2xl transition" >
             <img
               src="/coffee.png"
               alt="Our Coffee Story"
-              class="md:h-[300px] h-[100px]  mx-auto mb-3"
+              class="md:h-[200px] h-[100px]  mx-auto mb-3"
             />
             <h3 class="md:text-xl text-base font-semibold text-white mb-2 text-center">Espresso Supreme</h3>
-            <p class="text-white text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
+            <p class="text-gray-400 text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
           </div>
 
-          <div class=" rounded-xl shadow-lg p-6 hover:shadow-2xl transition" >
+          <div class=" rounded-xl  p-6 hover:shadow-2xl transition" >
             <img
               src="/coffee.png"
               alt="Our Coffee Story"
-              class="md:h-[300px] h-[100px]  mx-auto mb-3"
+              class="md:h-[200px] h-[100px]  mx-auto mb-3"
             />
             <h3 class="md:text-xl text-base font-semibold text-white mb-2 text-center">Espresso Supreme</h3>
-            <p class="text-white text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
+            <p class=" text-gray-400 text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
           </div>
 
-          <div class=" rounded-xl shadow-lg p-6 hover:shadow-2xl transition" >
+          <div class=" rounded-xl  p-6 hover:shadow-2xl transition" >
             <img
               src="/coffee.png"
               alt="Our Coffee Story"
-              class="md:h-[300px] h-[100px]  mx-auto mb-3"
+              class="md:h-[200px] h-[100px]  mx-auto mb-3"
             />
           <h3 class="md:text-xl text-base font-semibold text-white mb-2 text-center">Espresso Supreme</h3>
-          <p class="text-white text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
+          <p class="text-gray-400 text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
           </div>
 
-          <div class=" rounded-xl shadow-lg p-6 hover:shadow-2xl transition" >
+          <div class=" rounded-xl  p-6 hover:shadow-2xl transition" >
             <img
               src="/coffee.png"
               alt="Our Coffee Story"
-              class="md:h-[300px] h-[100px] mx-auto mb-3"
+              class="md:h-[200px] h-[100px] mx-auto mb-3"
             />
             <h3 class="md:text-xl text-base font-semibold text-white mb-2 text-center">Espresso Supreme</h3>
-          <p class="text-white text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
+          <p class="text-gray-400 text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
           </div>
         </div>
 
         <div class="mt-12">
           <NuxtLink
             to="/menus"
-            class="bg-coffee-light text-white px-8 py-3 rounded-full font-semibold hover:bg-coffee-darker transition"
+            class="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-coffee-darker transition text-sm"
           >
             View Full Menu
           </NuxtLink>
@@ -100,32 +100,32 @@
     </section>
 
 
-  <section class="bg-gradient-to-br from-coffee-dark to-coffee-light text-white py-16 md:py-24 relative overflow-hidden">
+  <section class="min-h-screen bg-gradient-to-br from-coffee-dark mx-auto to-coffee-light text-white py-16 md:py-24 relative overflow-hidden">
     <!-- Background Accent -->
     <div class="absolute top-0 right-0 w-80 h-80 bg-orange-500 opacity-20 rounded-full blur-3xl"></div>
 
     <div class="container mx-auto px-6 md:px-12 lg:px-20 grid md:grid-cols-2 gap-12 items-center">
       <!-- Text Content -->
       <div data-aos="fade-right">
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">
+        <h2 class="text-3xl md:text-5xl  mb-4  font-extrabold  leading-tight">
           This Month’s Feature: <span class="text-orange-300">Pumpkin Spice Latte 🎃</span>
         </h2>
         <p class="text-lg text-gray-200 mb-6">
           Spiced, creamy, and perfectly cozy — available for a limited time only.
         </p>
         <button
-          class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+          class="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           Order Now
         </button>
       </div>
 
       <!-- Image -->
-      <div class="relative group" data-aos="fade-left">
+      <div class="relative group mx-auto" data-aos="fade-left">
         <img
           src="/coffee.png"
           alt="Pumpkin Spice Latte"
-          class="rounded-2xl shadow-2xl transform transition-transform duration-500 group-hover:scale-105"
+          class="rounded-2xl  transform transition-transform duration-500 group-hover:scale-105 md:h-[500px]"
         />
         <!-- Decorative Circle -->
         <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-orange-400 opacity-30 rounded-full"></div>
@@ -134,7 +134,7 @@
   </section>
 
 
-  <section class="bg-coffee-dark text-white py-16 min-h-screen">
+  <section class="bg-coffee-dark text-white py-16  min-h-screen">
       <div class="container mx-auto px-6 md:px-12 lg:px-20 flex md:flex-row flex-col  gap-10 items-center py-5">
         <div class="lg:w-1/2 relative">
           <img
@@ -147,7 +147,7 @@
         </div>
 
         <div class="lg:w-1/2 ">
-          <h2 class="text-3xl md:text-5xl font-bold mb-6" data-aos="fade-in">Our Story</h2>
+          <h2 class="text-3xl md:text-5xl font-extrabold  leading-tight drop-shadow-lg mb-6 " data-aos="fade-in">Our Story</h2>
           <p class="text-lg leading-relaxed text-gray-300" 
           data-aos="fade-in"
           data-aos-easing="ease-in-back"
@@ -165,7 +165,7 @@
        <div class="container mx-auto px-6 md:px-12 lg:px-20 flex lg:flex-row flex-col-reverse gap-10 items-center py-5">
 
         <div class="md:w-1/2">
-          <h2 class="text-3xl md:text-5xl font-bold mb-6" data-aos="fade-in">Where We Start</h2>
+          <h2 class="text-3xl md:text-5xl font-extrabold  leading-tight drop-shadow-lg mb-6 " data-aos="fade-in">Where We Start</h2>
           <p class="text-lg leading-relaxed text-gray-300" 
           data-aos="fade-in"
           data-aos-easing="ease-in-back"
@@ -185,13 +185,14 @@
             alt="Our Coffee Story"
             class="rounded-2xl shadow-lg"
             data-aos="fade-left"
+            
           />
           <div class="absolute -bottom-6 -right-6 bg-coffee-light w-24 h-24 rounded-full opacity-30"></div>
         </div>
       </div>
     </section>
 
-    <section class=" text-white py-20 relative">
+    <section class=" text-white py-20 relative min-h-screen">
       <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center">
         <!-- Title -->
         <div class="mb-16" data-aos="fade-up">
@@ -245,7 +246,7 @@
 
 
 <!-- Testimonials -->
-<section class="bg-gradient-to-b from-coffee-dark to-black text-white py-20">
+<section class="bg-gradient-to-b from-coffee-dark to-black text-white py-20 ">
   <div class="container mx-auto px-6 md:px-12 text-center">
     <h2 class="text-3xl md:text-5xl font-bold mb-16" data-aos="fade-up">
       What Our Customers Say
@@ -267,90 +268,8 @@
   </div>
 </section>
 
-<footer class="bg-black text-white px-8 pt-[150px] pb-10">
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-    <!-- Brand -->
-    <div>
-      <h2 class="text-[50px] font-bold mb-4">Find Coffee</h2>
-      <div class="flex space-x-4">
-        <a href="#" class="w-12 h-12 flex items-center justify-center border border-gray-600 rounded-full hover:bg-gray-700">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="w-12 h-12 flex items-center justify-center border border-gray-600 rounded-full hover:bg-gray-700">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="w-12 h-12 flex items-center justify-center border border-gray-600 rounded-full hover:bg-gray-700">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </div>
-    </div>
 
-    <!-- Contact -->
-    <div>
-      <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-      <ul class="space-y-3 text-gray-300">
-        <li class="flex items-center space-x-2">
-          <a href="tel:(732) 982-4377" class="flex gap-1">
-            <img src="" alt="Phone" loading="lazy">
-            <span>(732) 982-4377</span>
-          </a>
-        </li>
-        <li class="flex items-center space-x-2">
-          <a href="mailto:info@cedrit.com" class="flex gap-1">
-            <img src="" alt="Email" loading="lazy">
-            <span>info@cedrit.com</span>
-          </a>
-        </li>
-        <li class="flex items-center space-x-2">
-          <img src="" alt="Address" loading="lazy">
-          <span>123 Cedrit 07001</span>
-        </li>
-      </ul>
-    </div>
 
-    <!-- Quick Links -->
-    <div>
-      <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-      <ul class="space-y-3 text-gray-300">
-        <li><NuxtLink to="/" class="hover:text-white">Home</NuxtLink></li>
-        <li><NuxtLink to="/" class="hover:text-white">Products & Services</NuxtLink></li>
-        <li><NuxtLink to="/" class="hover:text-white">About Us</NuxtLink></li>
-        <li><a class="hover:text-white">Testimonials</a></li>
-        <li><a  class="hover:text-white">Contact Us</a></li>
-        <li><NuxtLink to="/faqs" class="hover:text-white">FAQs</NuxtLink></li>
-      </ul>
-    </div>
-
-    <!-- Newsletter -->
-    <div>
-      <h3 class="text-lg font-semibold mb-4">Stay in the loop with our Weekly Newsletter</h3>
-      <form class="flex items-center bg-transparent rounded-full border p-1 overflow-hidden h-[49px] relative">
-        <input 
-          type="email" 
-          placeholder="Enter your email"
-          class="bg-transparent flex-1 ps-[20px] pe-[65px] py-5 text-white text-[12px] 
-                 border-0 focus:outline-none transition-colors duration-300"
-        >
-        <button 
-          type="submit" 
-          class="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-full absolute right-[5px]"
-        >
-          <i class="fas fa-paper-plane text-white text-sm"></i>
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Bottom Bar -->
-  <div class="container rounded-md px-[24px] py-[16px] bg-[#191919] mx-auto mt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-    <p>© 2024 Find Coffee. All Rights Reserved</p>
-    <div class="space-x-4 mt-2 md:mt-0">
-      <NuxtLink to="/terms" class="hover:text-white">Terms & Conditions</NuxtLink>
-      <span>|</span>
-      <NuxtLink to="/privacy" class="hover:text-white">Privacy Policy</NuxtLink>
-    </div>
-  </div>
-</footer>
 
 
 
