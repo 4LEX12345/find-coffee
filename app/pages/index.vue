@@ -268,15 +268,6 @@
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-
   </div>
 
 </template>
