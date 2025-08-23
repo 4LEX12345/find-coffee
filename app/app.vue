@@ -22,8 +22,16 @@
          <div class="hidden md:flex bg-black/40 px-5 py-2 rounded-full backdrop-blur-xl"
           data-aos="zoom-in"
           data-aos-delay="300">
-          <NuxtLink to="/contact" class="hover:text-coffee-light text-sm"
-          >My Cart</NuxtLink>
+          <NuxtLink to="/cart" class="hover:text-coffee-light "
+          >
+            <ShoppingCart  class="w-5 h-5"/>   
+            <span
+              v-if="totalItems > 0"
+              class="absolute -top-2 -right-2 bg-yellow-500 text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+            >
+              {{ totalItems }}
+            </span>
+          </NuxtLink>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -136,7 +144,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref , computed} from 'vue'
+import { ShoppingCart } from 'lucide-vue-next';
+import { useCartStore } from '~/stores/cart';
+
+
+const cart = useCartStore()
+
+const totalItems = computed(() => {
+  return cart.items.reduce((sum, item) => sum + item.quantity, 0)
+})
+
 const isOpen = ref(false)
 </script>
 

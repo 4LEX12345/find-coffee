@@ -51,7 +51,7 @@
             <img
               src="/coffee.png"
               alt="Our Coffee Story"
-              class="md:h-[200px] h-[100px]  mx-auto mb-3"
+              class="md:h-[200px] h-[100px]  mx-auto mb-3" loading="lazy"
             />
             <h3 class="md:text-xl text-base font-semibold text-white mb-2 text-center">Espresso Supreme</h3>
             <p class="text-gray-400 text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
@@ -61,7 +61,7 @@
             <img
               src="/coffee.png"
               alt="Our Coffee Story"
-              class="md:h-[200px] h-[100px]  mx-auto mb-3"
+              class="md:h-[200px] h-[100px]  mx-auto mb-3" loading="lazy"
             />
             <h3 class="md:text-xl text-base font-semibold text-white mb-2 text-center">Espresso Supreme</h3>
             <p class=" text-gray-400 text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
@@ -71,7 +71,7 @@
             <img
               src="/coffee.png"
               alt="Our Coffee Story"
-              class="md:h-[200px] h-[100px]  mx-auto mb-3"
+              class="md:h-[200px] h-[100px]  mx-auto mb-3" loading="lazy"
             />
           <h3 class="md:text-xl text-base font-semibold text-white mb-2 text-center">Espresso Supreme</h3>
           <p class="text-gray-400 text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
@@ -81,7 +81,7 @@
             <img
               src="/coffee.png"
               alt="Our Coffee Story"
-              class="md:h-[200px] h-[100px] mx-auto mb-3"
+              class="md:h-[200px] h-[100px] mx-auto mb-3" loading="lazy"
             />
             <h3 class="md:text-xl text-base font-semibold text-white mb-2 text-center">Espresso Supreme</h3>
           <p class="text-gray-400 text-center md:text-base text-sm">Bold, rich, and silky smooth.</p>
@@ -125,7 +125,7 @@
         <img
           src="/coffee.png"
           alt="Pumpkin Spice Latte"
-          class="rounded-2xl  transform transition-transform duration-500 group-hover:scale-105 md:h-[500px]"
+          class="rounded-2xl  transform transition-transform duration-500 group-hover:scale-105 md:h-[500px]" loading="lazy"
         />
         <!-- Decorative Circle -->
         <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-orange-400 opacity-30 rounded-full"></div>
@@ -141,7 +141,7 @@
             src="/bg-wall.jpg"
             alt="Our Coffee Story"
             class="rounded-2xl shadow-lg"
-            data-aos="fade-right"
+            data-aos="fade-right" loading="lazy"
           />
           <div class="absolute -bottom-6 -right-6 bg-coffee-light w-24 h-24 rounded-full opacity-30"></div>
         </div>
@@ -184,7 +184,7 @@
             src="/bg-wall.jpg"
             alt="Our Coffee Story"
             class="rounded-2xl shadow-lg"
-            data-aos="fade-left"
+            data-aos="fade-left" loading="lazy"
             
           />
           <div class="absolute -bottom-6 -right-6 bg-coffee-light w-24 h-24 rounded-full opacity-30"></div>
@@ -210,7 +210,7 @@
           <!-- Card 1 -->
           <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:bg-white/10 transition">
             <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-coffee-light/20 flex items-center justify-center">
-              <img src="/support.webp" alt="Ethically Sourced" class="w-10 h-10">
+              <img src="/support.webp" alt="Ethically Sourced" class="w-10 h-10" loading="lazy">
             </div>
             <h3 class="text-xl font-semibold mb-2">Ethically Sourced Beans</h3>
             <p class="text-gray-300 text-sm">
@@ -221,7 +221,7 @@
           <!-- Card 2 -->
           <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:bg-white/10 transition">
             <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-coffee-light/20 flex items-center justify-center">
-              <img src="/support.webp" alt="Expertly Crafted" class="w-10 h-10">
+              <img src="/support.webp" alt="Expertly Crafted" class="w-10 h-10" loading="lazy">
             </div>
             <h3 class="text-xl font-semibold mb-2">Expertly Crafted</h3>
             <p class="text-gray-300 text-sm">
@@ -232,7 +232,7 @@
           <!-- Card 3 -->
           <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:bg-white/10 transition">
             <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-coffee-light/20 flex items-center justify-center">
-              <img src="/support.webp" alt="Cozy Escape" class="w-10 h-10">
+              <img src="/support.webp" alt="Cozy Escape" class="w-10 h-10" loading="lazy">
             </div>
             <h3 class="text-xl font-semibold mb-2">A Cozy Escape</h3>
             <p class="text-gray-300 text-sm">
@@ -256,13 +256,13 @@
       <!-- Testimonial Card 1 -->
       <div class="bg-white/5 backdrop-blur-lg p-8 rounded-2xl shadow-lg hover:bg-white/10 transition">
         <p class="italic text-gray-300 mb-4">“Best coffee in town — no contest!”</p>
-        <h4 class="font-semibold text-lg">— Sarah M.</h4>
+        <h3 class="font-semibold text-lg">— Sarah M.</h3>
       </div>
 
       <!-- Testimonial Card 2 -->
       <div class="bg-white/5 backdrop-blur-lg p-8 rounded-2xl shadow-lg hover:bg-white/10 transition">
         <p class="italic text-gray-300 mb-4">“The atmosphere here is unbeatable.”</p>
-        <h4 class="font-semibold text-lg">— Jason K.</h4>
+        <h3 class="font-semibold text-lg">— Jason K.</h3>
       </div>
     </div>
   </div>
