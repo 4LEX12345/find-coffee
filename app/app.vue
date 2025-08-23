@@ -2,37 +2,7 @@
   <div class="font-body   text-gray-800">
     <header class="fixed w-full top-0 text-white px-4 py-6 z-50 md:bg-transparent bg-black/40 ">
       <nav class="md:px-10 mx-auto flex justify-between items-center ">
-        <!-- Logo -->
-        <NuxtLink to="/" class=" text-sm space-x-10 bg-black/40 px-10 py-2 rounded-full backdrop-blur-xl"
-        data-aos="zoom-in"
-        data-aos-delay="100"
-        >Find.Coffee</NuxtLink>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-10 bg-black/40 px-10 py-4 rounded-full backdrop-blur-xl"
-        data-aos="zoom-in"
-        data-aos-delay="200"
-        >
-          <NuxtLink to="/" class="hover:text-coffee-light text-sm">Home</NuxtLink>
-          <NuxtLink to="/menu" class="hover:text-coffee-light text-sm">Products</NuxtLink>
-          <NuxtLink to="/about" class="hover:text-coffee-light text-sm">About</NuxtLink>
-          <NuxtLink to="/contact" class="hover:text-coffee-light text-sm">Contact</NuxtLink>
-        </div>
-
-         <div class="hidden md:flex bg-black/40 px-5 py-2 rounded-full backdrop-blur-xl"
-          data-aos="zoom-in"
-          data-aos-delay="300">
-          <NuxtLink to="/cart" class="hover:text-coffee-light "
-          >
-            <ShoppingCart  class="w-5 h-5"/>   
-            <span
-              v-if="totalItems > 0"
-              class="absolute -top-2 -right-2 bg-yellow-500 text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
-            >
-              {{ totalItems }}
-            </span>
-          </NuxtLink>
-        </div>
+        <div class="flex gap-2">
 
         <!-- Mobile Menu Button -->
         <button
@@ -54,6 +24,42 @@
             />
           </svg>
         </button>
+        <!-- Logo -->
+        <NuxtLink to="/" class=" text-sm space-x-10 bg-black/40 px-10 py-2 rounded-full backdrop-blur-xl"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+        >Find.Coffee</NuxtLink>
+
+        
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-10 bg-black/40 px-10 py-4 rounded-full backdrop-blur-xl"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+        >
+          <NuxtLink to="/" class="hover:text-coffee-light text-sm">Home</NuxtLink>
+          <NuxtLink to="/menu" class="hover:text-coffee-light text-sm">Products</NuxtLink>
+          <NuxtLink to="/about" class="hover:text-coffee-light text-sm">About</NuxtLink>
+          <NuxtLink to="/contact" class="hover:text-coffee-light text-sm">Contact</NuxtLink>
+        </div>
+
+       
+         <div class=" bg-black/40 px-5 py-2 rounded-full backdrop-blur-xl"
+            data-aos="zoom-in"
+            data-aos-delay="300">
+            <NuxtLink to="/cart" class="hover:text-coffee-light "
+            >
+              <ShoppingCart  class="w-5 h-5"/>   
+              <span
+                v-if="totalItems > 0"
+                class="absolute -top-2 -right-2 bg-yellow-500 text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+              >
+                {{ totalItems }}
+              </span>
+            </NuxtLink>
+        </div>
+          
       </nav>
 
       <!-- Mobile Dropdown -->
