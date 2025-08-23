@@ -66,9 +66,9 @@
       >
         <!-- Favorite Icon -->
         <button
-          class="absolute top-4 right-4 bg-white/70 backdrop-blur-md rounded-full p-2 shadow hover:scale-110 transition"
+          class="absolute top-4 right-4 bg-white/70 backdrop-blur-md rounded-full p-2 shadow hover:scale-110 transition z-10"
         >
-          ❤️
+          <Heart  class="fill-coffee-light border-none"/>
         </button>
 
         <!-- Image -->
@@ -116,7 +116,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import { Search, Folder } from 'lucide-vue-next';
+import { Search, Folder, Heart } from 'lucide-vue-next';
 import ProductModal from "../components/ProductModal.vue";
 
 const products = ref([
