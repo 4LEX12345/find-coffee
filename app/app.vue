@@ -91,17 +91,30 @@
 
           <!-- Cart Items -->
           <ul class="flex-1 divide-y divide-gray-200 mb-6">
-            <li v-for="(item, index) in cart.items" :key="index" class="py-4 flex justify-between items-center">
-              <div class="flex items-center space-x-3">
-                <img :src="item.product.image" alt="" class="w-16 h-16 rounded-lg object-cover" />
+            <li v-for="(item, index) in cart.items" :key="index" class="py-4 flex justify-between items-start">
+              <div class="flex items-start space-x-3">
+                <img :src="item.product.image" alt="" class="w-10 h-10 rounded-lg object-cover" />
                 <div>
-                  <p class="font-medium text-gray-900">{{ item.product.name }}</p>
-                  <p class="text-sm text-gray-500">{{ item.size }} x {{ item.quantity }}</p>
+                  <p class="font-medium text-sm text-gray-900 flex items-center gap-2">{{ item.product.name }} <span class="inline-flex items-start justify-center w-5 h-5 rounded-full bg-black/10  text-[9px] text-coffee-dark">
+                    {{ item.quantity }}
+                  </span></p>
+                  <p class="font-medium text-[10px] text-gray-500 text-left mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ut necessitatibus accusantium asperiores delectus eius at, harum neque minus quisquam</p>
+                   <!-- <div class="flex gap-2 items-center justify-end"> 
+                    <button @click="cart.removeFromCart(index)" class="text-red-500 hover:text-red-600 text-sm font-semibold">
+                        <Trash class="h-4 w-4"/>
+                    </button>
+                  </div> -->
+                </div>
+
+                 <div class="flex gap-2 items-end justify-between flex-col h-full"> 
+                   <p class="text-sm text-gray-600 mt-1"> {{  formatPrice(item.quantity * item.product.price)}}</p>
+                    <button @click="cart.removeFromCart(index)" class=" text-sm font-semibold text-white">
+                         <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-coffee-light hover:bg-coffee-dark text-[9px]">
+                          <Trash class="h-3 w-3"/>
+                        </span>
+                    </button>
                 </div>
               </div>
-              <button @click="cart.removeFromCart(index)" class="text-red-500 hover:text-red-600 text-sm font-semibold">
-                Remove
-              </button>
             </li>
           </ul>
 
@@ -137,12 +150,20 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { ShoppingCart } from 'lucide-vue-next'
+import { ShoppingCart, Trash  } from 'lucide-vue-next'
 import { useCartStore } from '~/stores/cart'
 
 const cart = useCartStore()
 const showCart = ref(false)
 const isOpen = ref(false)
+
+
+function formatPrice(value) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(value)
+}
 
 const totalItems = computed(() =>
   cart.items.reduce((sum, item) => sum + item.quantity, 0)
