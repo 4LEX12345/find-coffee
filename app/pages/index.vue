@@ -7,10 +7,10 @@
           class="absolute bottom-0 left-1/2 -translate-x-1/2  pointer-events-none md:hidden block"
            :style="{ opacity: 1 - scrollY / 300 }"
         />
-        <h1 class="md:text-[100px] font-extrabold  leading-tight drop-shadow-lg  z-20"  
+        <h1 class="md:text-[100px] text-3xl font-extrabold mb-2 leading-tight drop-shadow-lg  z-20"  
         :style="{ transform: `translate(0%, ${scrollY * 1}px)`,opacity : 1 - scrollY / 600  }"
         >Brewed to Perfection</h1>
-        <p class="text-lg mb-8 "
+        <p class="md:text-lg text-base mb-8 "
         :style="{ transform: `translate(0%, ${scrollY * 1}px)`,opacity : 1 - scrollY / 600 }"
         >
           Freshly roasted beans. Handcrafted with love.
