@@ -40,7 +40,7 @@
 
         <!-- Payment Method -->
         <h2 class="text-2xl font-bold text-gray-800 mt-6">Payment Method</h2>
-        <div class="flex gap-4 mt-2">
+        <div class="flex md:flex-row flex-col gap-4 mt-2">
             <button
             @click="paymentMethod = 'cash'"
             :class="buttonClass('cash')"
