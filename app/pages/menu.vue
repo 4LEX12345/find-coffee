@@ -60,7 +60,7 @@
       class="max-w-7xl mx-auto px-6 py-16 grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
     >
       <div
-        v-for="product in filteredProducts"
+        v-for="product in paginatedProducts"
         :key="product.id"
         class="group bg-white text-gray-900 rounded-3xl shadow-lg overflow-hidden transform hover:-translate-y-3 hover:scale-[1.03] transition-all duration-500 relative"
       >
@@ -74,7 +74,7 @@
         <!-- Image -->
         <div class="relative overflow-hidden">
           <img
-            :src="product.image"
+            :src=" defaultCoffee"
             :alt="product.name"
             class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
           />
@@ -92,7 +92,7 @@
             <p class="text-gray-600 text-sm line-clamp-2">{{ product.description }}</p>
           </div>
           <div class="flex items-center justify-between mt-4">
-            <span class="text-yellow-600 font-bold text-xl">${{ product.price }}</span>
+            <span class="text-yellow-600 font-bold text-xl">{{ product.price }}</span>
             <button
               @click="openModal(product)"
               class="px-5 py-2 bg-gradient-to-r from-coffee-dark to-coffee-dark/80 text-white rounded-full text-sm hover:scale-110 hover:shadow-md transition-all duration-300"
@@ -103,6 +103,20 @@
         </div>
       </div>
     </section>
+    <!-- Pagination Controls -->
+      <div class="flex justify-center mb-10 gap-2 flex-wrap">
+        <button
+          v-for="page in totalPages"
+          :key="page"
+          @click="currentPage = page"
+          :class="[
+            'px-4 py-2 rounded shadow',
+            currentPage === page ? 'bg-yellow-500 text-white' : 'bg-gray-200 text-gray-800 hover:bg-yellow-400'
+          ]"
+        >
+          {{ page }}
+        </button>
+      </div>
 
     <!-- Product Modal -->
     <ProductModal
@@ -118,17 +132,38 @@
 import { ref, computed } from "vue";
 import { Search, Folder, Heart } from 'lucide-vue-next';
 import ProductModal from "../components/ProductModal.vue";
+import defaultCoffee from '../../public/default-coffee.png';
 
-const products = ref([
-  { id: 1, name: "Cappuccino", category: "Coffee", description: "Rich espresso topped with steamed milk foam.", price: 4.5, image: "https://picsum.photos/400/300?1" },
-  { id: 2, name: "Caramel Latte", category: "Coffee", description: "Espresso with caramel and steamed milk.", price: 5.0, image: "https://picsum.photos/400/300?2" },
-  { id: 3, name: "Blueberry Muffin", category: "Pastry", description: "Freshly baked muffin with sweet blueberries.", price: 2.8, image: "https://picsum.photos/400/300?3" },
-  { id: 4, name: "Cold Brew", category: "Cold Drinks", description: "Smooth and refreshing cold brew coffee.", price: 4.2, image: "https://picsum.photos/400/300?4" },
-]);
+const products = ref([]);
+const loading = ref(false);
+const error = ref(null);
+
+
+function randomPrice(min = 10, max = 1000, decimals = 2) {
+  const price = Math.random() * (max - min) + min
+  return parseFloat(price.toFixed(decimals))
+}
+
+
+const fetchProducts = async () => {
+  try{
+    loading.value = true;
+
+    const res = await fetch('/coffee_shop_products_detailed.json')
+    const data = await res.json()
+    products.value  = data.products || [];
+  }catch(err){
+    error.value = err.message;
+  }finally{
+    loading.value = false;
+  }
+}
 
 const search = ref("");
 const category = ref("");
-const categories = [...new Set(products.value.map(p => p.category))];
+const categories = computed (() => {
+  return  [...new Set(products.value.map(p => p.category))];
+}) 
 
 // Modal state
 const showModal = ref(false);
@@ -152,6 +187,21 @@ const filteredProducts = computed(() => {
     );
   });
 });
+
+const currentPage = ref(1);
+const perPage = ref(8); // number of products per page
+
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * perPage.value;
+  const end = start + perPage.value;
+  return filteredProducts.value.slice(start, end);
+});
+
+const totalPages = computed(() => {
+  return Math.ceil(filteredProducts.value.length / perPage.value);
+});
+
+fetchProducts();
 </script>
 
 <style>

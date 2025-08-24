@@ -160,37 +160,50 @@
           <!-- Cart Items -->
           <ul class="flex-1 divide-y divide-gray-200 mb-6">
             <li v-for="(item, index) in cart.items" :key="index" class="py-4 flex justify-between items-start">
-              <div class="flex items-start space-x-3">
-                <img :src="item.product.image" alt="" class="w-10 h-10 rounded-lg object-cover" />
+              <!-- Left: Product Info -->
+              <div class="flex items-start space-x-3 flex-1">
+                <img :src="defaultCoffee" alt="{{item.product.name}}" class="w-10 h-10 rounded-lg object-cover" />
                 <div>
-                  <p class="font-medium text-sm text-gray-900 flex items-center gap-2">{{ item.product.name }} <span class="inline-flex items-start justify-center w-5 h-5 rounded-full bg-black/10  text-[9px] text-coffee-dark">
-                    {{ item.quantity }}
-                  </span></p>
-                  <p class="font-medium text-[10px] text-gray-500 text-left mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ut necessitatibus accusantium asperiores delectus eius at, harum neque minus quisquam</p>
-                   <!-- <div class="flex gap-2 items-center justify-end"> 
-                    <button @click="cart.removeFromCart(index)" class="text-red-500 hover:text-red-600 text-sm font-semibold">
-                        <Trash class="h-4 w-4"/>
-                    </button>
-                  </div> -->
-                </div>
+                  <p class="font-medium text-sm text-gray-900 flex items-center gap-2">
+                    {{ item.product.name }}
+                    <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-black/10 text-[9px] text-coffee-dark">
+                      {{ item.quantity }}
+                    </span>
+                  </p>
+                  <p class="font-medium text-[10px] text-gray-500 mt-1">
+                    {{ [
+                        item.size,
+                        item.milk,
+                        item.shots > 0 ? item.shots + ' shot(s)' : null,
+                        item.addons.length ? item.addons.join(', ') : null,
+                        item.temperature
+                      ].filter(Boolean).join(' • ') }}
+                  </p>
 
-                 <div class="flex gap-2 items-end justify-between flex-col h-full"> 
-                   <p class="text-sm text-gray-600 mt-1"> {{  formatPrice(item.quantity * item.product.price)}}</p>
-                    <button @click="cart.removeFromCart(index)" class=" text-sm font-semibold text-white">
-                         <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-coffee-light hover:bg-coffee-dark text-[9px]">
-                          <Trash class="h-3 w-3"/>
-                        </span>
-                    </button>
+                  <p class="font-medium text-[10px] text-gray-500 mt-1">
+                    Note: {{ item.instructions }}
+                  </p>
                 </div>
+              </div>
+
+              <!-- Right: Price + Remove Button -->
+              <div class="flex flex-col justify-between items-end w-20">
+                <p class="text-sm text-gray-600 mt-1">{{ formatPrice( item.quantity * item.price) }}</p>
+                <button @click="cart.removeFromCart(index)" class="text-sm font-semibold text-white">
+                  <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-coffee-light hover:bg-coffee-dark text-[9px]">
+                    <Trash class="h-3 w-3"/>
+                  </span>
+                </button>
               </div>
             </li>
           </ul>
+
 
           <!-- Footer / Actions -->
           <div class="mt-auto border-t border-gray-200 pt-4 flex flex-col space-y-3">
             <div class="flex justify-between items-center font-semibold text-gray-900">
               <span>Total:</span>
-              <span>${{ totalPrice.toFixed(2) }}</span>
+              <span>₱{{ totalPrice.toFixed(2) }}</span>
             </div>
 
             <div class="flex space-x-3">
@@ -220,6 +233,8 @@
 import { ref, computed } from 'vue'
 import { ShoppingCart, Trash  } from 'lucide-vue-next'
 import { useCartStore } from '~/stores/cart'
+import defaultCoffee from '../../public/default-coffee.png';
+
 
 const cart = useCartStore()
 const showCart = ref(false)
@@ -227,9 +242,9 @@ const isOpen = ref(false)
 
 
 function formatPrice(value) {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('en-PH', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'PHP',
   }).format(value)
 }
 
@@ -237,7 +252,7 @@ const totalItems = computed(() =>
   cart.items.reduce((sum, item) => sum + item.quantity, 0)
 )
 const totalPrice = computed(() =>
-  cart.items.reduce((sum, item) => sum + item.quantity * item.product.price, 0)
+  cart.items.reduce((sum, item) => sum + item.quantity * item.price, 0)
 )
 </script>
 
