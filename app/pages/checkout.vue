@@ -1,11 +1,11 @@
 <template>
-  <div class="max-w-6xl mx-auto p-6 md:mt-0 mt-[100px]">
-    <h1 class="text-3xl font-extrabold text-gray-900 text-center mb-8">Checkout</h1>
+  <div class="max-w-6xl mx-auto p-6 mt-[100px]">
+    <h1 class="text-3xl font-extrabold text-coffee-dark text-center mb-8">Checkout</h1>
 
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Left: Order Summary -->
       <section class="flex-1 bg-white p-6 rounded-xl shadow-lg">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4">Your Order</h2>
+        <h2 class="text-xl font-semibold text-coffee-dark mb-4">Your Order</h2>
         <ul class="divide-y divide-gray-200">
           <li v-for="(item, index) in cart.items" :key="index" class="flex justify-between py-4 items-start">
             <div>
@@ -22,8 +22,8 @@
         </ul>
 
         <div class="flex justify-between mt-6 font-bold text-lg text-gray-900 border-t pt-4">
-          <span>Total:</span>
-          <span>{{ formatPrice(cartTotal) }}</span>
+          <span class="text-coffee-dark">Total:</span>
+          <span class="text-coffee-dark">{{ formatPrice(cartTotal) }}</span>
         </div>
       </section>
 
