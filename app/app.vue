@@ -215,6 +215,7 @@
               </button>
               <NuxtLink
                 to="/checkout"
+                 @click="showCart = false"
                 class="flex-1 bg-coffee-dark text-white px-4 py-3 rounded-lg  transition text-center"
               >
                 Checkout
