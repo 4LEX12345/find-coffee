@@ -172,11 +172,11 @@
                   </p>
                   <p class="font-medium text-[10px] text-gray-500 mt-1">
                     {{ [
-                        item.size,
-                        item.milk,
+                        capitalizeFirst(item.size),
+                        capitalizeFirst(item.milk),
                         item.shots > 0 ? item.shots + ' shot(s)' : null,
                         item.addons.length ? item.addons.join(', ') : null,
-                        item.temperature
+                        capitalizeFirst(item.temperature)
                       ].filter(Boolean).join(' • ') }}
                   </p>
 
@@ -208,25 +208,54 @@
 
             <div class="flex space-x-3">
               <button
-                @click="cart.clearCart()"
+                @click="showConfirm = true"
                 class="flex-1 bg-coffee-light text-white px-4 py-3 rounded-lg  transition"
               >
                 Clear Cart
               </button>
               <NuxtLink
-                to="/checkout"
-                 @click="showCart = false"
-                class="flex-1 bg-coffee-dark text-white px-4 py-3 rounded-lg  transition text-center"
-              >
-                Checkout
-              </NuxtLink>
+              :to="cart.items.length > 0 ? '/checkout' : ''"
+              @click.prevent="cart.length === 0 ? null : showCart = false"
+              :class="[
+                'flex-1 px-4 py-3 rounded-lg text-center transition',
+                cart.items.length > 0
+                  ? 'bg-coffee-dark text-white hover:bg-coffee-darker'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              ]"
+            >
+              Checkout
+            </NuxtLink>
             </div>
           </div>
         </div>
       </div>
     </transition>
 
-     
+      <!-- Modal -->
+      <div
+        v-if="showConfirm"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+      >
+        <div class="bg-white rounded-xl p-6 w-80 shadow-lg space-y-4">
+          <h3 class="text-lg font-semibold text-gray-900">Confirm</h3>
+          <p>Are you sure you want to clear the cart?</p>
+          <div class="flex justify-end gap-3">
+            <button
+              @click="showConfirm = false"
+              class="px-4 py-2 rounded-lg bg-gray-200"
+            >
+              No
+            </button>
+            <button
+              @click="clearCart"
+              class="px-4 py-2 rounded-lg bg-coffee-dark text-white"
+            >
+              Yes, Clear
+            </button>
+          </div>
+        </div>
+      </div>
+
   </div>
 </template>
 
@@ -240,6 +269,18 @@ import defaultCoffee from '../../public/default-coffee.png';
 const cart = useCartStore()
 const showCart = ref(false)
 const isOpen = ref(false)
+const showConfirm = ref(false)
+
+function capitalizeFirst(str) {
+  if (!str) return ''
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+
+function clearCart() {
+  cart.clearCart()
+  showConfirm.value = false
+}
 
 
 function formatPrice(value) {

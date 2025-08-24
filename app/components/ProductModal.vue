@@ -101,7 +101,7 @@
                         : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-yellow-100'
                     ]"
                   >
-                    {{ addon }}
+                    {{ addon }} - 15
                   </button>
                 </div>
               </div>
@@ -141,7 +141,7 @@
             <!-- Add to Cart -->
             <button
               @click="addToCart"
-              class="mt-6 w-full py-3 bg-yellow-600 text-white font-bold rounded-full hover:bg-yellow-500 transition"
+              class="mt-6 w-full py-3 bg-coffee-dark text-white font-bold rounded-full  transition"
             >
               Add to Cart
             </button>

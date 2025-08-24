@@ -11,10 +11,10 @@
             <div>
               <p class="font-medium text-gray-900">{{ item.product.name }} ({{ item.quantity }})</p>
               <p class="text-sm text-gray-500 mt-1">
-                {{ [item.size, item.milk, item.shots > 0 ? item.shots + ' shot(s)' : null, item.addons.length ? item.addons.join(', ') : null, item.temperature].filter(Boolean).join(' • ') }}
+                {{ [capitalizeFirst(item.size), capitalizeFirst(item.milk), item.shots > 0 ? item.shots + ' shot(s)' : null, item.addons.length ? item.addons.join(', ') : null, capitalizeFirst(item.temperature)].filter(Boolean).join(' • ') }}
               </p>
               <p class="text-sm text-gray-500 mt-1">
-                Note: {{ item.instructions }}
+                Note: {{ capitalizeFirst(item.instructions) }}
               </p>
             </div>
             <p class="font-semibold text-gray-900">{{ formatPrice(item.price * item.quantity) }}</p>
@@ -93,6 +93,12 @@ const paymentMethod = ref('cash')
 const cartTotal = computed(() => {
   return cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
 })
+
+function capitalizeFirst(str) {
+  if (!str) return ''
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 
 function formatPrice(value) {
   return new Intl.NumberFormat('en-PH', {

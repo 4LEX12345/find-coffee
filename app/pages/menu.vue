@@ -171,6 +171,9 @@ const selectedProduct = ref(null);
 
 function openModal(product) {
   selectedProduct.value = product;
+  selectedProduct.value.quantity = 1;
+
+  console.log(selectedProduct);
   showModal.value = true;
 }
 
