@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto p-6">
+  <div class="max-w-6xl mx-auto p-6 md:mt-0 mt-[100px]">
     <h1 class="text-3xl font-extrabold text-gray-900 text-center mb-8">Checkout</h1>
 
     <div class="flex flex-col lg:flex-row gap-8">
