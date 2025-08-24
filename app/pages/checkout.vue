@@ -5,7 +5,11 @@
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Left: Order Summary -->
       <section class="flex-1 bg-white p-6 rounded-xl shadow-lg">
-        <h2 class="text-xl font-semibold text-coffee-dark mb-4">Your Order</h2>
+        <div class="flex justify-between items-end ">
+            <h2 class="text-xl font-semibold text-coffee-dark">Order Summary</h2>
+            <NuxtLink to="/menu" class="text-base font-semibold text-coffee-dark">Add more</NuxtLink>
+        </div>
+        
         <ul class="divide-y divide-gray-200">
           <li v-for="(item, index) in cart.items" :key="index" class="flex justify-between py-4 items-start">
             <div>
@@ -15,6 +19,9 @@
               </p>
               <p class="text-sm text-gray-500 mt-1">
                 Note: {{ capitalizeFirst(item.instructions) }}
+              </p>
+              <p @click="showRemove(index)" class="text-sm text-coffee-light mt-1 cursor-pointer">
+                Remove
               </p>
             </div>
             <p class="font-semibold text-gray-900">{{ formatPrice(item.price * item.quantity) }}</p>
@@ -66,12 +73,37 @@
         <!-- Place Order Button -->
         <button
             @click="placeOrder"
-            class="w-full bg-yellow-500 text-white px-8 py-3 rounded-2xl shadow-lg hover:scale-105 hover:bg-yellow-600 transition transform duration-200 font-bold mt-6">
+            class="w-full bg-coffee-dark text-white px-8 py-3 rounded-2xl shadow-lg hover:scale-105 hover:bg-yellow-600 transition transform duration-200 font-bold mt-6">
             Place Order
         </button>
         </section>
     </div>
   </div>
+
+   <div
+        v-if="showRemoveModal"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+      >
+        <div class="bg-white rounded-xl p-6 w-80 shadow-lg space-y-4">
+          <h3 class="text-lg font-semibold text-gray-900">Confirm</h3>
+          <p>Are you sure you want to remove this item?</p>
+          <div class="flex justify-end gap-3">
+            <button
+              @click="showRemoveModal = false"
+              class="px-4 py-2 rounded-lg bg-gray-200"
+            >
+              No
+            </button>
+            <button
+              @click="removeItem"
+              class="px-4 py-2 rounded-lg bg-coffee-dark text-white"
+            >
+              Yes, Remove
+            </button>
+          </div>
+        </div>
+      </div>
+
 </template>
 
 <script setup>
@@ -80,6 +112,19 @@ import { useCartStore } from '~/stores/cart'
 import { Banknote, CreditCard , TabletSmartphone  } from 'lucide-vue-next';
 
 const cart = useCartStore()
+const showRemoveModal = ref(false)
+const itemToBeRemove = ref('')
+
+function showRemove(index){
+  itemToBeRemove.value = index;
+  showRemoveModal.value = true;
+}
+
+function removeItem(){
+ cart.removeFromCart(itemToBeRemove.value);
+ showRemoveModal.value = false;
+}
+
 
 const customer = ref({
   name: '',

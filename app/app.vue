@@ -189,7 +189,7 @@
               <!-- Right: Price + Remove Button -->
               <div class="flex flex-col justify-between items-end w-20">
                 <p class="text-sm text-gray-600 mt-1">{{ formatPrice( item.quantity * item.price) }}</p>
-                <button @click="cart.removeFromCart(index)" class="text-sm font-semibold text-white">
+                <button @click="showRemovex(index)" class="text-sm font-semibold text-white">
                   <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-coffee-light hover:bg-coffee-dark text-[9px]">
                     <Trash class="h-3 w-3"/>
                   </span>
@@ -256,6 +256,30 @@
         </div>
       </div>
 
+      <div
+        v-if="showRemoveModal"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+      >
+        <div class="bg-white rounded-xl p-6 w-80 shadow-lg space-y-4">
+          <h3 class="text-lg font-semibold text-gray-900">Confirm</h3>
+          <p>Are you sure you want to remove this item?</p>
+          <div class="flex justify-end gap-3">
+            <button
+              @click="showRemoveModal = false"
+              class="px-4 py-2 rounded-lg bg-gray-200"
+            >
+              No
+            </button>
+            <button
+              @click="removeItem"
+              class="px-4 py-2 rounded-lg bg-coffee-dark text-white"
+            >
+              Yes, Remove
+            </button>
+          </div>
+        </div>
+      </div>
+
   </div>
 </template>
 
@@ -270,12 +294,23 @@ const cart = useCartStore()
 const showCart = ref(false)
 const isOpen = ref(false)
 const showConfirm = ref(false)
+const showRemoveModal = ref(false)
+const itemToBeRemove = ref('')
 
 function capitalizeFirst(str) {
   if (!str) return ''
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+function showRemovex(index){
+  itemToBeRemove.value = index;
+  showRemoveModal.value = true;
+}
+
+function removeItem(){
+ cart.removeFromCart(itemToBeRemove.value);
+ showRemoveModal.value = false;
+}
 
 function clearCart() {
   cart.clearCart()
